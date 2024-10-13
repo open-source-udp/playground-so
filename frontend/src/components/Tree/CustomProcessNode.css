@@ -1,0 +1,18 @@
+.custom-process-node {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 80px;
+  height: 80px;
+  background-color: white;
+  border: 2px solid white;
+  border-radius: 50%;
+  color: black;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.node-content {
+  text-align: center;
+  pointer-events: none; /* Evita que el contenido interfiera con las conexiones */
+}

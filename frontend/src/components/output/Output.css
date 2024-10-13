@@ -38,3 +38,7 @@
 .container {
   position: relative;
 }
+
+.output {
+  padding: 10px;
+}

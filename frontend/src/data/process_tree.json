@@ -7,6 +7,7 @@
                 "pid": 11989,
                 "process": [
                     {
+                        "output": "cat\\ncat\\n",
                         "pid": 11991,
                         "process": [
                             {

@@ -5,15 +5,17 @@ import CustomNodeFlow from "./components/Tree/CustomNodeFlow";
 
 function App() {
   return (
-    <div className="container">
-      <div className="editor-section">
-        <CodeEditor />
-        <Output />
+    <>
+      <div className="container">
+        <div className="editor-section">
+          <CodeEditor />
+          <Output />
+        </div>
+        <div className="display-section">
+          <CustomNodeFlow />
+        </div>
       </div>
-      <div className="display-section">
-        <CustomNodeFlow />
-      </div>
-    </div>
+    </>
   );
 }
 
