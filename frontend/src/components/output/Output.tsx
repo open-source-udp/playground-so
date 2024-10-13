@@ -4,7 +4,7 @@ export default function Output() {
     <>
       <div className="top-bar">OUTPUT</div>
       <div className="terminal">
-        ~/OpenSourceUDP/Documents/Playground-SO
+        ~/Users/OpenSourceUDP/Projects/Playground-SO
         <div className="output"></div>
       </div>
     </>

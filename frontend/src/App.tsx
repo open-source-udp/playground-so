@@ -1,5 +1,5 @@
 import "./App.css";
-import CodeEditor from "./components/Editor";
+import CodeEditor from "./components/editor/Editor";
 import Output from "./components/output/Output";
 import CustomNodeFlow from "./components/Tree/CustomNodeFlow";
 
