@@ -56,7 +56,7 @@ export default function Output() {
 
   // Dividir la cadena por saltos de línea para renderizar cada línea por separado
   const formattedOutputs = allOutputs
-    .split("\n")
+    .split("\\n")
     .filter((line) => line.trim() !== "");
 
   return (
