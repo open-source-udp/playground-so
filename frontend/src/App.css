@@ -3,15 +3,10 @@
   flex-direction: row;
 }
 
-.editor {
-  width: 90%;
-  height: 90%;
-  margin: 0 auto;
-  padding: 20px;
-}
-
 .editor-section {
   width: 50%;
+  display: flex;
+  flex-direction: column;
 }
 
 .display-section {

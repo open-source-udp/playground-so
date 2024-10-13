@@ -1,0 +1,40 @@
+/* Output.css */
+.top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 16px;
+  padding-left: 16px;
+  background-color: #1e1e1e;
+  color: #d4d4d4;
+  font-family: "Consolas", "Courier New", monospace;
+  font-size: 14px;
+  border-top: 2px solid #2d2d2d;
+}
+.terminal {
+  background-color: #1e1e1e;
+  color: #d4d4d4;
+  font-family: "Consolas", "Courier New", monospace;
+  font-size: 14px;
+  padding: 16px;
+  height: 300px;
+  overflow-y: auto;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.container::-webkit-scrollbar {
+  width: 8px;
+}
+
+.container::-webkit-scrollbar-track {
+  background: #2d2d2d;
+}
+
+.container::-webkit-scrollbar-thumb {
+  background-color: #555;
+  border-radius: 4px;
+}
+
+.container {
+  position: relative;
+}

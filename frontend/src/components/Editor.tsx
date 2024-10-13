@@ -12,7 +12,14 @@ function CodeEditor() {
   return (
     <CodeMirror
       value={value}
-      height="100vh"
+      height="70vh"
+      style={{
+        fontSize: 14,
+        position: "relative",
+        top: 0,
+        left: 0,
+        width: "100%",
+      }}
       extensions={[cpp()]}
       onChange={onChange}
       theme={vscodeDark}

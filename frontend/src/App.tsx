@@ -1,5 +1,6 @@
 import "./App.css";
 import CodeEditor from "./components/Editor";
+import Output from "./components/output/Output";
 import CustomNodeFlow from "./components/Tree/CustomNodeFlow";
 
 function App() {
@@ -7,9 +8,9 @@ function App() {
     <div className="container">
       <div className="editor-section">
         <CodeEditor />
+        <Output />
       </div>
       <div className="display-section">
-        <div className="display" />
         <CustomNodeFlow />
       </div>
     </div>
