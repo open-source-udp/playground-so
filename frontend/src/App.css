@@ -1,5 +1,21 @@
-#root {
-  max-width: 1280px;
+.container {
+  display: flex;
+  flex-direction: row;
+}
+
+.editor {
+  width: 90%;
+  height: 90%;
   margin: 0 auto;
-  padding: 2rem;
+  padding: 20px;
+}
+
+.editor-section {
+  width: 50%;
+}
+
+.display-section {
+  background: blue;
+  height: 100vh;
+  width: 50%;
 }
