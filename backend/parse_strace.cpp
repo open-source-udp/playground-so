@@ -1,6 +1,6 @@
 /*
  * Program: Process Tree Builder from strace Output
- * Author: [Your Name]
+ * Author: [LexO]
  *
  * Description:
  * This program reads strace output files, parses them to reconstruct the process tree,
