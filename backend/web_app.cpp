@@ -10,6 +10,27 @@ int run_shell_script(const std::string& file_name) {
     return system(command.c_str());  // Executes the shell script
 }
 
+class CORS {
+public:
+    struct context {};
+
+    void before_handle(crow::request& req, crow::response& res, context& ctx) {
+        if (req.method == crow::HTTPMethod::Options) {
+            res.code = crow::status::OK;
+            res.add_header("Access-Control-Allow-Origin", "*");
+            res.add_header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
+            res.add_header("Access-Control-Allow-Headers", "Content-Type, Authorization");
+            res.end();
+        }
+    }
+
+    void after_handle(crow::request& req, crow::response& res, context& ctx) {
+        res.add_header("Access-Control-Allow-Origin", "*");
+        res.add_header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
+        res.add_header("Access-Control-Allow-Headers", "Content-Type, Authorization");
+    }
+};
+
 // Function to read the generated JSON file
 std::string read_json_file(const std::string& json_file_path) {
     std::ifstream json_file(json_file_path);
@@ -25,10 +46,10 @@ std::string read_json_file(const std::string& json_file_path) {
 }
 
 int main() {
-    crow::SimpleApp app;
+    crow::App<CORS> app;
 
     // POST /run - receives C++ code as text and executes it
-    CROW_ROUTE(app, "/run").methods(crow::HTTPMethod::POST)
+    CROW_ROUTE(app, "/Run").methods(crow::HTTPMethod::POST)
     ([&](const crow::request& req) {
         auto code = req.body;
 

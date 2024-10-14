@@ -1,42 +1,6 @@
 import "./Output.css";
 
-const responseData = [
-  {
-    output: "dog\\ndog\\n",
-    pid: 11988,
-    process: [
-      {
-        pid: 11989,
-        process: [
-          {
-            pid: 11991,
-            process: [
-              {
-                pid: 11993,
-              },
-            ],
-          },
-          {
-            pid: 11994,
-          },
-        ],
-      },
-      {
-        pid: 11990,
-        process: [
-          {
-            pid: 11992,
-          },
-        ],
-      },
-      {
-        pid: 11995,
-      },
-    ],
-  },
-];
-
-export default function Output() {
+export default function Output(props) {
   // Función recursiva para recopilar todos los outputs
   const collectOutputs = (data) => {
     let outputs = [];
@@ -51,8 +15,8 @@ export default function Output() {
     return outputs;
   };
 
-  // Obtener todos los outputs y unirlos en una sola cadena
-  const allOutputs = collectOutputs(responseData).join("");
+  // Asegúrate de que props.procesos es un arreglo
+  const allOutputs = collectOutputs(Array.isArray(props.procesos) ? props.procesos : []).join("");
 
   // Dividir la cadena por saltos de línea para renderizar cada línea por separado
   const formattedOutputs = allOutputs

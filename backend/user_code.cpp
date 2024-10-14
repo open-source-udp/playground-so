@@ -10,13 +10,13 @@ int main(int argc, char *argv[])
 {   
     pid_t me = getpid();
 
-    
+    // shared memory to store the process id
     pid_t pid = fork();
 
     if(pid == me)
     {
         const char* message = "cat";
-        
+        //send(clientSocket, message, strlen(message), 0);
         std::cout << "cat" << std::endl;
     }
     
@@ -27,7 +27,7 @@ int main(int argc, char *argv[])
         if(getpid() == me)
         {
             const char* message = "dog";
-            
+            //send(clientSocket, message, strlen(message), 0);
             std::cout << "dog" << std::endl;
         }
     }

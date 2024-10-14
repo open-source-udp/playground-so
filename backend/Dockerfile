@@ -19,6 +19,8 @@ RUN git clone https://github.com/CrowCpp/Crow.git && \
 
 COPY . .
 
+RUN chmod +x analyze_program.sh
+RUN chmod +x parse_strace
 RUN g++ -std=c++17 -o web_app web_app.cpp -lpthread
-
+RUN chmod +x web_app
 CMD ["./web_app"]

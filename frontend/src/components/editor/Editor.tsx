@@ -3,23 +3,17 @@ import React from "react";
 import CodeMirror from "@uiw/react-codemirror";
 import { cpp } from "@codemirror/lang-cpp";
 import { vscodeDark } from "@uiw/codemirror-theme-vscode";
-import "./Editor.css"; // Asegúrate de importar el CSS
+import useCode from "../../hooks/useCode";
+import "./Editor.css";
 
-function CodeEditor() {
-  const placeholder = `#include <iostream>
-using namespace std;
+function CodeEditor({ onRunClick }) {
+  const setCode = useCode((state) => state.setCode);
+  const [value, setValue] = React.useState(``);
 
-int main() {
-  cout << "Hello, World!";
-  return 0;
-}`;
-
-  const [value, setValue] = React.useState(placeholder);
-
-  const onChange = React.useCallback((val: string) => {
-    console.log("val:", val);
+  const onChange = (val) => {
     setValue(val);
-  }, []);
+    setCode(val);
+  };
 
   return (
     <div className="custom-scrollbar">
@@ -37,6 +31,7 @@ int main() {
         onChange={onChange}
         theme={vscodeDark}
       />
+      <button onClick={onRunClick} style={{ padding: "10px", width: '100%', borderRadius: '0px' }}>Run</button>
     </div>
   );
 }

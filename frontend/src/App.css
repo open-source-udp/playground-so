@@ -6,7 +6,6 @@
 .editor-section {
   width: 50%;
   display: flex;
-  background: red;
   flex-direction: column;
   height: 100vh;
 }

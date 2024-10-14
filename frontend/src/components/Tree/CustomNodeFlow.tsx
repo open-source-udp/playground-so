@@ -17,6 +17,7 @@ import "@xyflow/react/dist/style.css";
 
 import CustomProcessNode from "./CustomProcessNode";
 import "./CustomProcessNode.css"; // Asegúrate de importar los estilos
+import { ListaProcesos } from "../../types/process";
 
 interface CustomNodeData {
   pid: string;
@@ -31,6 +32,10 @@ interface CustomEdge extends Edge {
   sourceHandle?: string;
 }
 
+interface CustomNodeFlowProps {
+  procesos: ListaProcesos;
+}
+
 const connectionLineStyle: React.CSSProperties = { stroke: "#fff" };
 const snapGrid: [number, number] = [20, 20];
 const nodeTypes = {
@@ -38,45 +43,11 @@ const nodeTypes = {
 };
 const defaultViewport = { x: 0, y: 0, zoom: 1.5 };
 
-// Datos de ejemplo
 
-const responseData = [
-  {
-    output: "dog\\ndog\\n",
-    pid: 11988,
-    process: [
-      {
-        pid: 11989,
-        process: [
-          {
-            pid: 11991,
-            process: [
-              {
-                pid: 11993,
-              },
-            ],
-          },
-          {
-            pid: 11994,
-          },
-        ],
-      },
-      {
-        pid: 11990,
-        process: [
-          {
-            pid: 11992,
-          },
-        ],
-      },
-      {
-        pid: 11995,
-      },
-    ],
-  },
-];
 
-const CustomNodeFlow: React.FC = () => {
+
+
+const CustomNodeFlow: React.FC<CustomNodeFlowProps> = ({ procesos }) => {
   const [nodes, setNodes, onNodesChange] = useNodesState<CustomNode>([]);
   const [edges, setEdges, onEdgesChange] = useEdgesState<CustomEdge>([]);
 
@@ -149,14 +120,19 @@ const CustomNodeFlow: React.FC = () => {
       return { newNodes, newEdges };
     };
 
-    const { newNodes, newEdges } = generateFlow(responseData);
-    setNodes(newNodes);
-    setEdges(newEdges);
+    // Verifica que procesos sea un arreglo antes de continuar
+    if (Array.isArray(procesos)) {
+      const { newNodes, newEdges } = generateFlow(procesos);
+      setNodes(newNodes);
+      setEdges(newEdges);
+    } else {
+      console.error("Error: procesos no es un arreglo", procesos);
+    }
 
     if (reactFlowInstance.current) {
       reactFlowInstance.current.fitView({ padding: 0.2 });
     }
-  }, [setNodes, setEdges]);
+  }, [procesos, setNodes, setEdges]);
 
   const onConnect = useCallback(
     (params: Connection) =>
@@ -204,3 +180,9 @@ const CustomNodeFlow: React.FC = () => {
 };
 
 export default CustomNodeFlow;
+
+/*
+Error: procesos no es un arreglo 
+Object { error: "Shell script failed." }
+CustomNodeFlow.tsx:162:14
+*/
