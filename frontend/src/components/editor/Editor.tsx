@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 // CodeEditor.tsx
 import React from "react";
 import CodeMirror from "@uiw/react-codemirror";
@@ -6,11 +7,11 @@ import { vscodeDark } from "@uiw/codemirror-theme-vscode";
 import useCode from "../../hooks/useCode";
 import "./Editor.css";
 
-function CodeEditor({ onRunClick }) {
+function CodeEditor({ onRunClick } : { onRunClick: () => void }) {
   const setCode = useCode((state) => state.setCode);
   const [value, setValue] = React.useState(``);
 
-  const onChange = (val) => {
+  const onChange = (val: any) => {
     setValue(val);
     setCode(val);
   };
