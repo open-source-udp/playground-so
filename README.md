@@ -1,8 +1,7 @@
 # playground-so
 
-### Levantamiento de container individual frontend
+### Levantamiento de container
 
 ```bash
-sudo docker build -t front ./frontend
-sudo docker run -p 3000:3000 front
+docker compose up --build
 ```
