@@ -14,7 +14,7 @@ export default function useProcesos(code: any) {
         if (code) {
             const fetchData = async () => {
                 try {
-                    const response = await fetch('http://backend:5000/run', {
+                    const response = await fetch('http://127.0.0.1:5000/run', {
                         method: "POST",
                         headers: {
                             'Content-Type': 'application/json',
