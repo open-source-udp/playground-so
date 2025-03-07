@@ -23,7 +23,11 @@ function App() {
           <Output procesos={procesos} />
         </div>
         <div className="display-section">
-          <CustomNodeFlow procesos={procesos} />
+          {procesos && !('error' in procesos) ? (
+            <CustomNodeFlow procesos={procesos} />
+          ) : (
+            <div>Error cargando procesos</div>
+          )}
         </div>
       </div>
     </>

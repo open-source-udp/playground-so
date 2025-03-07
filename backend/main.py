@@ -1,8 +1,11 @@
 from flask import Flask, request, jsonify
+from flask_cors import CORS
 from utils.llm import analyze_error_helper
 from utils.utils import compile_and_run_codes
 
 app = Flask(__name__)
+CORS(app)
+app.config['CORS_HEADERS'] = 'Content-Type'
 
 @app.route('/run', methods=['POST'])
 def analyze_endpoint():

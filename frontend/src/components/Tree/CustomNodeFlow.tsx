@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { useEffect, useCallback, useRef } from "react";
 import {
   ReactFlow,
@@ -53,7 +54,7 @@ const CustomNodeFlow: React.FC<CustomNodeFlowProps> = ({ procesos }) => {
 
   // Crear referencias
   const reactFlowWrapper = useRef<HTMLDivElement>(null);
-  const reactFlowInstance = useRef<ReactFlowInstance | null>(null);
+  const reactFlowInstance = useRef<ReactFlowInstance<CustomNode, CustomEdge> | null>(null);
 
   useEffect(() => {
     const generateFlow = (data: any[]) => {
@@ -120,12 +121,14 @@ const CustomNodeFlow: React.FC<CustomNodeFlowProps> = ({ procesos }) => {
       return { newNodes, newEdges };
     };
 
+    console.log(procesos)
     // Verifica que procesos sea un arreglo antes de continuar
     if (Array.isArray(procesos)) {
       const { newNodes, newEdges } = generateFlow(procesos);
       setNodes(newNodes);
       setEdges(newEdges);
     } else {
+      console.log("LOS PROC", procesos)
       console.error("Error: procesos no es un arreglo", procesos);
     }
 

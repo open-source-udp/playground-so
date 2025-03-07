@@ -1,10 +1,11 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import "./Output.css";
 
-export default function Output(props) {
+export default function Output(props: any) {
   // Función recursiva para recopilar todos los outputs
-  const collectOutputs = (data) => {
-    let outputs = [];
-    data.forEach((item) => {
+  const collectOutputs = (data: any) => {
+    let outputs: any = [];
+    data.forEach((item: any) => {
       if (item.output) {
         outputs.push(item.output);
       }
@@ -21,7 +22,7 @@ export default function Output(props) {
   // Dividir la cadena por saltos de línea para renderizar cada línea por separado
   const formattedOutputs = allOutputs
     .split("\\n")
-    .filter((line) => line.trim() !== "");
+    .filter((line: any) => line.trim() !== "");
 
   return (
     <>
@@ -29,7 +30,7 @@ export default function Output(props) {
       <div className="terminal">
         ~/Users/OpenSourceUDP/Projects/Playground-SO
         <div className="output">
-          {formattedOutputs.map((line, index) => (
+          {formattedOutputs.map((line: any, index: any) => (
             <div key={index}>{line}</div>
           ))}
         </div>
