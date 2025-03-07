@@ -1,8 +1,8 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
+ 
 import { useEffect, useState } from "react";
-import { ListaProcesos } from "../types/process";
+import { Code, ListaProcesos } from "../types/process";
 
-export default function useProcesos(code: any) {
+export default function useProcesos(code: Code) {
     const [data, setData] = useState<ListaProcesos | { error: string }>([]);
 
     const output = {
