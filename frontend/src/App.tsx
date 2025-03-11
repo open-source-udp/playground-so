@@ -8,29 +8,34 @@ import { useState } from "react";
 
 function App() {
   const code = useCode((state) => state.code);
-  const [runCode, setRunCode] = useState(false); // Estado para controlar cuándo ejecutar el código
-  const { data: procesos } = useProcesos(runCode ? code : null); // Solo ejecuta cuando runCode es true
+  const [executedCode, setExecutedCode] = useState<{ [filename: string]: string } | null>(null);
+  const { data: procesos } = useProcesos(executedCode);
 
   const handleRunClick = () => {
-    setRunCode(true);
+    setExecutedCode(code);
   };
 
   return (
-    <>
-      <div className="container">
-        <div className="editor-section">
-          <CodeEditor onRunClick={handleRunClick} /> {/* Pasa la función de clic */}
-          <Output procesos={procesos} />
-        </div>
-        <div className="display-section">
-          {procesos && !('error' in procesos) ? (
+    <div className="container">
+      <div className="editor-section">
+        <CodeEditor onRunClick={handleRunClick} />
+        <Output procesos={procesos} />
+      </div>
+      <div className="display-section">
+        {executedCode ? (
+          procesos && !("error" in procesos) ? (
             <CustomNodeFlow procesos={procesos} />
           ) : (
-            <div>Error cargando procesos</div>
-          )}
-        </div>
+            <p className="placeholder-empty">Error capa , no se pueden visulizar los procesos.</p>
+
+          )
+        ) : (
+          <div>
+            <p className="placeholder-empty">Ejecuta código para visualizar los procesos.</p>
+          </div>
+        )}
       </div>
-    </>
+    </div>
   );
 }
 
