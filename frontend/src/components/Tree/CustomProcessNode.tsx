@@ -1,5 +1,5 @@
 import React from "react";
-import { Handle, Position } from "@xyflow/react"; // Asegúrate de importar correctamente
+import { Handle, Position } from "@xyflow/react"; 
 
 interface CustomProcessNodeProps {
   data: {

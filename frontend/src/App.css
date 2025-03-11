@@ -13,3 +13,13 @@
 .display-section {
   width: 50%;
 }
+
+.placeholder-empty {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  color: #ccc;
+  font-size: xx-large;
+  padding: 20px 40px;
+}

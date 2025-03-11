@@ -1,6 +1,6 @@
 export type ListaProcesos = Proceso[]
 
-export type Code = string | null
+type Code = { [filename: string]: string };
 
 export interface Proceso {
   output?: string

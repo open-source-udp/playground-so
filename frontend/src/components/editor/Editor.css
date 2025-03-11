@@ -1,6 +1,3 @@
-/* Output.css */
-
-/* Clase contenedora para aplicar estilos personalizados a la scrollbar */
 .custom-scrollbar .cm-scroller::-webkit-scrollbar {
   width: 12px;
 }
@@ -22,3 +19,90 @@
   scrollbar-width: thin;
   scrollbar-color: #1d1d1d #464646;
 }
+
+.custom-scrollbar {
+  width: 100%;
+}
+
+.tabs {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background-color: #1e1e1e;
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+.tab {
+  padding: 8px 12px;
+  margin-right: 2px;
+  cursor: pointer;
+  background-color: #1e1e1e;
+  color: #ccc;
+  display: flex;
+  align-items: center;
+  user-select: none;
+}
+
+.tab.active {
+  background-color: #262626;
+  color: white;
+  border-bottom: 1px solid #262626;
+}
+
+.close-tab {
+  background: transparent;
+  border: none;
+  color: #ccc;
+  margin-left: 8px;
+  cursor: pointer;
+}
+
+.add-tab {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+  padding: 8px;
+}
+
+.add-tab input {
+  border: 1px solid #3c3c3c;
+  padding: 4px;
+  background-color: #1e1e1e;
+  color: white;
+  margin-right: 4px;
+  padding: 6px;
+  border-radius: 4px;
+}
+
+.add-tab button {
+  padding: 6px;
+  border: none;
+  background-color: #ef4444;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.button-container {
+  display: flex;
+  background-color: #1e1e1e;
+  justify-content: center;
+  padding: 10px;
+}
+
+.run-button {
+  padding: 10px;
+  width: 100%;
+  border-radius: 8px;
+  background-color: #ef4444;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.run-button:disabled {
+  background-color: #e66f6f;
+  cursor: not-allowed;
+}
+
