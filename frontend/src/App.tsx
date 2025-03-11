@@ -26,7 +26,7 @@ function App() {
           procesos && !("error" in procesos) ? (
             <CustomNodeFlow procesos={procesos} />
           ) : (
-            <p className="placeholder-empty">Error capa , no se pueden visulizar los procesos.</p>
+            <p className="placeholder-empty">Error capa 8, no se pueden visulizar los procesos.</p>
 
           )
         ) : (
