@@ -2,7 +2,6 @@
 import "./Output.css";
 
 export default function Output(props: any) {
-  // Función recursiva para recopilar todos los outputs
   const collectOutputs = (data: any) => {
     let outputs: any = [];
     data.forEach((item: any) => {
@@ -16,10 +15,8 @@ export default function Output(props: any) {
     return outputs;
   };
 
-  // Asegúrate de que props.procesos es un arreglo
   const allOutputs = collectOutputs(Array.isArray(props.procesos) ? props.procesos : []).join("");
 
-  // Dividir la cadena por saltos de línea para renderizar cada línea por separado
   const formattedOutputs = allOutputs
     .split("\\n")
     .filter((line: any) => line.trim() !== "");

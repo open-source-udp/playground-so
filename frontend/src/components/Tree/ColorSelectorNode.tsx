@@ -1,7 +1,6 @@
 import React, { memo, ChangeEvent } from "react";
 import { Handle, Position } from "@xyflow/react";
 
-// Definimos la interfaz para las propiedades del componente
 interface CustomColorPickerNodeProps {
   data: {
     color: string;
@@ -10,7 +9,6 @@ interface CustomColorPickerNodeProps {
   isConnectable: boolean;
 }
 
-// Definimos el componente utilizando React.FC y la interfaz de propiedades
 const CustomColorPickerNode: React.FC<CustomColorPickerNodeProps> = ({
   data,
   isConnectable,
@@ -51,5 +49,4 @@ const CustomColorPickerNode: React.FC<CustomColorPickerNodeProps> = ({
   );
 };
 
-// Exportamos el componente memoizado para optimizar el rendimiento
 export default memo(CustomColorPickerNode);

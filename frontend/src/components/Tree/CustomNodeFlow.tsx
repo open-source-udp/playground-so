@@ -13,11 +13,10 @@ import {
   useNodesState,
   useEdgesState,
   ReactFlowInstance,
-} from "@xyflow/react"; // Asegúrate de que '@xyflow/react' exporta estos tipos
-import "@xyflow/react/dist/style.css";
+} from "@xyflow/react"; import "@xyflow/react/dist/style.css";
 
 import CustomProcessNode from "./CustomProcessNode";
-import "./CustomProcessNode.css"; // Asegúrate de importar los estilos
+import "./CustomProcessNode.css";
 import { ListaProcesos } from "../../types/process";
 
 interface CustomNodeData {
@@ -122,7 +121,6 @@ const CustomNodeFlow: React.FC<CustomNodeFlowProps> = ({ procesos }) => {
     };
 
     console.log(procesos)
-    // Verifica que procesos sea un arreglo antes de continuar
     if (Array.isArray(procesos)) {
       const { newNodes, newEdges } = generateFlow(procesos);
       setNodes(newNodes);
@@ -183,9 +181,3 @@ const CustomNodeFlow: React.FC<CustomNodeFlowProps> = ({ procesos }) => {
 };
 
 export default CustomNodeFlow;
-
-/*
-Error: procesos no es un arreglo 
-Object { error: "Shell script failed." }
-CustomNodeFlow.tsx:162:14
-*/
